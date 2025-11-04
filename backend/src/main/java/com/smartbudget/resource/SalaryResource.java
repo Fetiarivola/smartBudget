@@ -20,11 +20,13 @@ public class SalaryResource {
     SalaryRepository salaryRepository;
 
     @GET
+    @Path("/list")
     public List<Salary> getAll() {
         return salaryRepository.listAll();
     }
 
     @POST
+    @Path("/add")
     @Transactional
     public Salary addSalary(Salary salary) {
         if (salary.getDate() == null)
@@ -36,7 +38,7 @@ public class SalaryResource {
     }
 
     @PUT
-    @Path("/{id}")
+    @Path("/update/{id}")
     @Transactional
     public Salary updateSalary(@PathParam("id") Long id, Salary updatedSalary) {
         Salary existingSalary = salaryRepository.findById(id);
@@ -51,7 +53,7 @@ public class SalaryResource {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("/delete/{id}")
     @Transactional
     public void deleteSalary(@PathParam("id") Long id) {
         Salary existingSalary = salaryRepository.findById(id);
