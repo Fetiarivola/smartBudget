@@ -45,6 +45,7 @@ public class SalaryResource {
         if (existingSalary == null) {
             throw new NotFoundException("Salary with id " + id + " not found");
         }
+        existingSalary.setName(updatedSalary.getName());
         existingSalary.setAmount(updatedSalary.getAmount());
         existingSalary.setDate(updatedSalary.getDate());
         existingSalary.setCurrency(updatedSalary.getCurrency());

@@ -18,6 +18,9 @@ public class Salary {
     private Long id;
 
     @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
     private Double amount;
 
     @Column(nullable = false)
@@ -29,7 +32,8 @@ public class Salary {
     public Salary() {
     }
 
-    public Salary(double amount, LocalDate date, String currency) {
+    public Salary(String name, Double amount, LocalDate date, String currency) {
+        this.name = name;
         this.amount = amount;
         this.date = date;
         this.currency = currency;
@@ -40,11 +44,19 @@ public class Salary {
         return id;
     }
 
-    public double getAmount() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
